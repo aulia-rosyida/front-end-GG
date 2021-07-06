@@ -60,3 +60,7 @@ function myFunction() {
         flag = 1;
     }
 }
+
+document.getElementById('btn-submit').onclick = function() {
+    alert('click!')
+}
