@@ -2,14 +2,14 @@
   color: #02ccba;
 }
 
-.center{
+.center {
   display: flex;
   justify-content: center;
 }
 
-.padding-100{
+.padding-100 {
   padding-top: 10px;
-  padding-left:10%;
+  padding-left: 10%;
   padding-right: 20%;
 }
 
@@ -31,12 +31,12 @@ body {
 /* Remove extra left and right margins, due to padding */
 .row {
   margin: 0 -5px;
-  padding:1%;
+  padding: 1%;
 }
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -55,6 +55,6 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   text-align: center;
-  outline:1px solid #f1f1f1;
+  outline: 1px solid #f1f1f1;
   /* background-color: #f1f1f1; */
 }

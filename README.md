@@ -1,8 +1,11 @@
 # front-end-GG
-This branch to save my #1 homework in generasi Gigih 2021 
+
+This branch to save my #1 homework in generasi Gigih 2021
 
 # Homework 1 class 5 July 2021
+
 Create a page that contain of following:
+
 1. Have a title
 2. Have a heading 1 with "Create Playlist" text
 3. Have a form which accept title and description on the playlist
