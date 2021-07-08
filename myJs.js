@@ -1,66 +1,29 @@
-const students = [
-  { name: 'Oci', age: 20 },
-  { name: 'Bob', age: 21 },
-  { name: 'Jane', age: 23 },
-]
-
 function start() {
-  // get the reference for the body
-  var mybody = document.getElementsByTagName('body')[0]
+  const getSongAsyncAwait = async (resource) => {
+    const response = await fetch(resource)
+    const data = await response.json()
 
-  // creates <table> and <tbody> elements
-  mytable = document.createElement('table')
-  mytablebody = document.createElement('tbody')
-
-  // creating all cells
-  for (var j = 0; j < 3; j++) {
-    // creates a <tr> element
-    mycurrent_row = document.createElement('tr')
-
-    for (var i = 0; i < 1; i++) {
-      // creates a <td> element
-      mycurrent_cell = document.createElement('td')
-      // creates a Text Node
-      currenttext = document.createTextNode(
-        'No.' + j + ' ' + students[j].name + ', age: ' + students[j].age,
-      )
-      // appends the Text Node we created into the cell <td>
-      mycurrent_cell.appendChild(currenttext)
-      // appends the cell <td> into the row <tr>
-      mycurrent_row.appendChild(mycurrent_cell)
+    if (!response.ok) {
+      throw new Error('cannot fetch data')
     }
-    // appends the row <tr> into <tbody>
-    mytablebody.appendChild(mycurrent_row)
+
+    return data
   }
+  getSongAsyncAwait(
+    'https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json',
+  )
+    .then((data) => {
+      console.log('resolved:', data)
 
-  // appends <tbody> into <table>
-  mytable.appendChild(mytablebody)
-  // appends <table> into <body>
-  mybody.appendChild(mytable)
-  // sets the border attribute of mytable to 2;
-  mytable.setAttribute('border', '2')
-}
-
-var flag = 1
-
-function myFunction() {
-  var total = 0
-  if (flag === 1) {
-    for (index = 0; index < students.length; index++) {
-      console.log(students[index])
-      let totalTemp = total + students[index].age
-      total = totalTemp
-    }
-    let avg = total / students.length
-    console.log('ini avg skrg')
-    console.log(avg)
-
-    document.getElementById('demo').innerHTML = 'Ini rata-ratanya: ' + avg
-    flag = -1
-  } else {
-    document.getElementById('demo').innerHTML = 'No result... again'
-    flag = 1
-  }
+      document.getElementById('title-song').innerHTML = data['name']
+      document.getElementById('artist-song').innerHTML =
+        data['artists'][0]['name']
+      document.getElementById('album-song').innerHTML = data['album']['name']
+    })
+    .catch((err) => {
+      console.log('rejected:', err.message)
+      alert('cannot fetch data!')
+    })
 }
 
 document.getElementById('btn-submit').onclick = function () {

@@ -18,7 +18,7 @@
     <title>Gigih by Aulia Rosyida</title>
   </head>
 
-  <body>
+  <body onload="start()">
     <div>
       <h1 class="title center">Ros' Homework 1 : Create Playlist</h1>
       <p class="center">This page is contains ros homework for Gigih Path</p>
@@ -60,21 +60,10 @@
       <div class="row center">
         <div class="column">
           <div class="card">
-            <h3><b>Title</b></h3>
+            <h3 id="title-song"><b>Title</b></h3>
             <img src="sound-img.png" alt="Sound Image" style="width: 50%;" />
-            <p><b>Artist</b></p>
-            <p>Album</p>
-            <button type="button" class="btn btn-default" id="btn-play">
-              Play
-            </button>
-          </div>
-        </div>
-        <div class="column">
-          <div class="card">
-            <h3><b>Title</b></h3>
-            <img src="sound-img.png" alt="Sound Image" style="width: 50%;" />
-            <p><b>Artist</b></p>
-            <p>Album</p>
+            <p id="artist-song"><b>Artist</b></p>
+            <p id="album-song">Album</p>
             <button type="button" class="btn btn-default" id="btn-play">
               Play
             </button>
